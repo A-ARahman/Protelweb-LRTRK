@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LORETRACK - Registration</title>
+    <!-- Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-200 p-6">
+
+    <div class="grid grid-cols-4 gap-6">
+
+        <!-- Sidebar -->
+        <div class="bg-blue-600 text-white p-4 rounded-lg h-screen">
+            <h1 class="text-2xl font-bold mb-4">LORETRACK</h1>
+            <nav>
+                <a href="dashboard.html" class="block py-2 hover:bg-blue-700">Dashboard</a>
+                <a href="regis.html" class="block py-2 hover:bg-blue-700">Registration</a>
+                <a href="history.html" class="block py-2 hover:bg-blue-700">History</a>
+                <a href="live-tracking.html" class="block py-2 hover:bg-blue-700">Live Tracking</a>
+                <a href="notification.html" class="block py-2 hover:bg-blue-700">Notification</a>
+                <a href="profile.html" class="block py-2 hover:bg-blue-700">Profile</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-span-3 space-y-6">
+            <div class="flex justify-between items-center">
+                <input type="date" class="p-2 border rounded-md">
+                <div class="flex items-center">
+                    <input type="search" placeholder="Search" class="p-2 border rounded-md">
+                    <!-- Notification, Profile, and Settings Icons -->
+                    <a href="notification.html" class="ml-3 bg-gray-300 rounded-full h-8 w-8 flex items-center justify-center text-gray-600">N</a>
+                    <!-- ... -->
+                    <div class="ml-3 relative">
+                        <div class="bg-gray-300 rounded-full h-8 w-8 flex items-center justify-center text-gray-600 cursor-pointer profile-icon">P</div>
+                        <!-- Profile Dropdown -->
+                        <div class="absolute right-0 w-48 mt-2 py-2 bg-white border rounded shadow-xl profile-dropdown hidden">
+                            <a href="user-setting.html" class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">Account Settings</a>
+                            <a href="login.html" class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">Logout</a>
+                        </div>
+                    </div>
+                        <!-- ... -->
+
+                    <a href="#settings" class="ml-3 bg-gray-300 rounded-full h-8 w-8 flex items-center justify-center text-gray-600">S</a>
+                </div>
+            </div>
+           <!-- Registration Form -->
+    <div class="w-full  mx-auto bg-blue-500 p-10 border rounded-md">
+        <form action="regis.php" method="post">
+            <div class="mb-4">
+                <label for="lora_noseries" class="block text-white mb-2">LORA No Series</label>
+                <select name="lora_noseries" id="lora_noseries" class="w-full p-2 border rounded-md">
+                    <?php foreach ($loraOptions as $option): ?>
+                        <option value="<?= htmlspecialchars($option['lora_noseries']) ?>">
+                            <?= htmlspecialchars($option['lora_noseries']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="nik" class="block text-white mb-2">NIK</label>
+                <input type="text" name="nik" id="nik" class="w-full p-2 border rounded-md">
+            </div>
+            <div class="mb-4">
+                <label for="name" class="block text-white mb-2">Name</label>
+                <input type="text" name="name" id="name" class="w-full p-2 border rounded-md">
+            </div>
+            <div class="mb-4">
+                <label for="address" class="block text-white mb-2">Address</label>
+                <input type="text" name="address" id="address" class="w-full p-2 border rounded-md">
+            </div>
+            <div class="mb-4">
+                <label for="phone_number" class="block text-white mb-2">Phone Number</label>
+                <input type="text" name="phone_number" id="phone_number" class="w-full p-2 border rounded-md">
+            </div>
+            <div class="flex justify-end">
+                <button type="submit" class="bg-blue-900 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+            </div>
+        </form>
+    </div>
+
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LORETRACK Dashboard</title>
+    <!-- Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-100 p-6">
+
+    <div class="grid grid-cols-4 gap-6">
+
+        <!-- Sidebar -->
+        <div class="bg-blue-900 text-white p-4 rounded-lg shadow h-screen">
+            <h1 class="text-2xl font-bold mb-4">LORETRACK</h1>
+            <nav>
+                <a href="dashboard.php" class="block py-2 hover:bg-blue-800">Dashboard</a>
+                <!-- ... Other nav items -->
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-span-3 space-y-6">
+
+            <!-- Header -->
+            <div class="flex justify-between items-center">
+                <!-- Date Selector -->
+                <input type="date" name="selectedDate" value="<?= $dateSelected ?>" class="p-2 border rounded-md" onchange="this.form.submit()">
+                <!-- Search and Icons -->
+                <div class="flex items-center">
+                    <input type="search" placeholder="Search" class="p-2 border rounded-md">
+                    <!-- Icons... -->
+                </div>
+            </div>
+
+            <!-- Statistics Boxes -->
+            <div class="grid grid-cols-3 gap-6">
+                <!-- Pos Active -->
+                <div class="bg-white p-6 rounded-lg shadow flex flex-col items-center justify-center">
+                    <h2 class="text-2xl font-semibold text-blue-900">Pos Active</h2>
+                    <span class="text-4xl mt-2"><?= $active_pos_count ?></span>
+                </div>
+                <!-- Total Climbers -->
+                <!-- ... Other stat boxes -->
+            </div>
+
+            <!-- Pos Status -->
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-semibold text-blue-900 mb-4">Pos Status</h2>
+                <div class="grid grid-cols-2 gap-6">
+                    <!-- PHP foreach loop for pos status -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
